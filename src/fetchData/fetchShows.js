@@ -1,4 +1,4 @@
-import { fetchImg } from "./fetchImg.js";
+import { fetchImg } from "./fetchImg";
 
 var dataSendingToTable = {
   pageCount: "",
