@@ -5,5 +5,6 @@ The result you can find by following [this link](https://04qpnorkkv.codesandbox.
 
 **You can:**<br>
 - *search show*<br>
+- *when you found show you can **filter** results by genre*<br>
 - *sort show by **type***<br>
 - *sort show by **genre***<br> 
