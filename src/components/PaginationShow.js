@@ -42,13 +42,7 @@ class PaginationShow extends Component {
 
   pagePagination = (event, pageNumber) => {
     var page = event && event.target.value;
-
-    console.log(page || pageNumber, "FROM PAGINATION");
-    // console.log(page, "PAGEEEEE", pageNumber);
-    console.log(
-      `${this.props.initialRequest}&page=${page || pageNumber}&limit=10`,
-      "PAGINATION"
-    );
+    
     this.props.fetchShowsData(
       `${this.props.initialRequest}&page=${page || pageNumber}&limit=10`,
       null
