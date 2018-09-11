@@ -1,5 +1,3 @@
-//import { fetchShows } from "../../fetchData/fetchShows";
-
 export var showsFetchSuccess = successShowsData => {
   return {
     type: "SHOWS_FETCH_SUCCESS",
