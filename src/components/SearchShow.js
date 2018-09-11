@@ -9,7 +9,7 @@ class SearchShow extends Component {
   };
 
   findShow = () => {
-    // console.log(this.props.searchRequest, "AAAAAAAAAAAAAAAAAAAAAAAA");
+   
     this.showName &&
       this.props.fetchShowsData(
         `${this.props.searchRequest}${this.showName}&extended=full`,
