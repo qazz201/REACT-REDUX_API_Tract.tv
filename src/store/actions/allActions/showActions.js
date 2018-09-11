@@ -1,9 +1,9 @@
-import { fetchShows } from "../../fetchData/fetchShows";
+//import { fetchShows } from "../../fetchData/fetchShows";
 
-export var showsFetchSuccess = showsData => {
+export var showsFetchSuccess = successShowsData => {
   return {
     type: "SHOWS_FETCH_SUCCESS",
-    showsData
+    successShowsData
   };
 };
 export var showsIsLoading = bool => {
@@ -20,15 +20,25 @@ export var showsHasError = bool => {
   };
 };
 
-export var fetchShowsData = urlRequest => async dispatch => {
+/*export var fetchShowsData = (urlRequest, typeOfRequest) => async dispatch => {
   dispatch(showsIsLoading(true));
+  // console.log(urlRequest, "URL__ACTION");
+  switch (typeOfRequest) {
+    case "SEARCH":
+      dispatch();
+  }
 
   try {
     var showsData = await fetchShows(urlRequest);
+
     dispatch(showsFetchSuccess(showsData));
     console.log(showsData, "showsData from SHOWACTIONS");
   } catch (error) {
     dispatch(showsHasError(true));
+
+    console.log(`ERROR:${error.message}`);
+    throw new Error(`SOMETHING WRONG:ERROR:${error.message}`);
   }
   dispatch(showsIsLoading(false));
 };
+*/

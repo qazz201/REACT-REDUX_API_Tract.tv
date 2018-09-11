@@ -1,4 +1,4 @@
-import { fetchImg } from "./fetchImg.js";
+import { fetchImg } from "./fetchImg";
 
 var dataSendingToTable = {
   pageCount: "",
@@ -22,7 +22,7 @@ export var fetchShows = async initialRequest => {
     var pageCount = response.headers.get("X-Pagination-Page-Count");
     var body = await response.json();
 
-    console.log(body, "INITIAL");
+    //console.log(body, "INITIAL");
     var showId = [];
 
     showId = body.map(elem => {
@@ -34,7 +34,7 @@ export var fetchShows = async initialRequest => {
         return elem.ids.tvdb;
       }
     });
-    console.log(showId, "SHOW ID");
+    // console.log(showId, "SHOW ID");
 
     dataSendingToTable = {
       ...dataSendingToTable,
@@ -45,5 +45,6 @@ export var fetchShows = async initialRequest => {
     return fetchImg(showId, dataSendingToTable);
   } catch (error) {
     console.log(`ERROR:${error.message}`);
+    throw new Error(`SOMETHING WRONG:ERROR:${error.message}`);
   }
 };

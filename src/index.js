@@ -5,35 +5,82 @@ import { Provider, connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import store from "./store";
-import { fetchShowsData } from "./store/actions/showActions";
+import { fetchShowsData } from "./store/actions/actionCombiner";
+
+import CreateTable from "./components/presentationalComponents/CreateTable";
+//import TableHeader from "./components/presentationalComponents/TableHeader";
+
+import PaginationShow from "./components/PaginationShow";
+import SearchShow from "./components/SearchShow";
+import TypeShowFilter from "./components/TypeShowFilter";
+//import GenreShowFilter from "./components/GenreShowFilter";
+
+import ErrorMsg from "./messages/ErrorMsg";
+import GenreMsg from "./messages/GenreMsg";
 
 import "./styles.css";
 
 //console.log(store.getState(), "APP_STATE");
 
 class App extends Component {
+  componentWillMount() {
+    console.log(this.props, "PROPS");
+    this.props.fetchShowsData(this.props.initialRequest);
+  }
+
   render() {
+    var {
+      initialRequest,
+      shows,
+      showsImg,
+      pageCount,
+      showGenre,
+      showsIsLoading,
+      searchShowRequest
+    } = this.props;
+
+    //var { searchShowRequest } = this.props.searchData;
+
     console.log(this.props, "APP_STATE");
     return (
       <div className="App">
-        <button
-          onClick={() => this.props.fetchShowsData(this.props.initialRequest)}
-        >
-          LoadData : {this.props.isLoading ? "true" : "false"}
-        </button>
-        {this.props.isLoading ? (
-          <React.Fragment>
-            <h1>Hello CodeSandbox</h1>
-            <h2>Start editing to see some magic happen!</h2>
-          </React.Fragment>
-        ) : null}
+        <SearchShow
+          fetchShowsData={this.props.fetchShowsData}
+          searchRequest={searchShowRequest}
+        />
+
+        <TypeShowFilter fetchShowsData={this.props.fetchShowsData} />
+
+        <PaginationShow
+          initialRequest={initialRequest}
+          fetchShowsData={this.props.fetchShowsData}
+          pageCount={pageCount}
+        />
+
+        {showGenre && <GenreMsg showGenre={showGenre} />}
+
+        {showsIsLoading ? (
+          <div className="loader">Loading...</div>
+        ) : (
+          <CreateTable
+            initialRequest={initialRequest}
+            fetchShowsData={this.props.fetchShowsData}
+            shows={shows}
+            showsImg={showsImg}
+          />
+        )}
+
+        {shows.length === 0 && <ErrorMsg />}
       </div>
     );
   }
 }
 var mapStateToProps = state => {
   return {
-    ...state
+    ...state.showData,
+    ...state.searchData,
+    ...state.showsType,
+    ...state.showsGenre
   };
 };
 
