@@ -6,4 +6,4 @@ The result you can find by following [this link](https://04qpnorkkv.codesandbox.
 **You can:**<br>
 - *search show*<br>
 - *sort show by **type***<br>
-- *sort show by **genre***<br>
+- *sort show by **genre***<br> 
