@@ -27,7 +27,7 @@ export var fetchShows = async initialRequest => {
 
     showId = body.map(elem => {
       showsData.push(elem.show ? elem.show : elem);
-      //console.log(elem.show?elem.show:elem, "INITIAL");
+      // console.log(elem.show ? elem.show : elem, "INITIAL");
 
       if (elem.thetvdb_id) {
         return elem.thetvdb_id;
