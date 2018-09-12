@@ -25,9 +25,7 @@ export var fetchImg = async (showId, dataSendingToTable) => {
         ? elem.hdclearart[0].url
         : null;
 
-    if (elem.status === "error") return null; //Img not exist..
-
-    return imgArray.push(imgExist);
+     return imgArray.push(imgExist);
   });
 
   dataSendingToTable = {
