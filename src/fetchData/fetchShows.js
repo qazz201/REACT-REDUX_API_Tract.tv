@@ -22,10 +22,13 @@ export var fetchShows = async initialRequest => {
     var pageCount = response.headers.get("X-Pagination-Page-Count");
     var body = await response.json();
 
-    //console.log(body, "INITIAL");
+    var showsData = [];
     var showId = [];
 
     showId = body.map(elem => {
+      showsData.push(elem.show ? elem.show : elem);
+      // console.log(elem.show ? elem.show : elem, "INITIAL");
+
       if (elem.thetvdb_id) {
         return elem.thetvdb_id;
       } else if (elem.show) {
@@ -34,12 +37,11 @@ export var fetchShows = async initialRequest => {
         return elem.ids.tvdb;
       }
     });
-    // console.log(showId, "SHOW ID");
-
+  
     dataSendingToTable = {
       ...dataSendingToTable,
       pageCount: pageCount,
-      shows: body
+      shows: showsData
     };
 
     return fetchImg(showId, dataSendingToTable);
