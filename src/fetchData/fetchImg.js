@@ -15,7 +15,7 @@ export var fetchImg = async (showId, dataSendingToTable) => {
     })
   );
 
-  console.log(body, "JSON");
+  //console.log(body, "JSON");
   var imgArray = [];
 
   body.map(elem => {
@@ -35,7 +35,7 @@ export var fetchImg = async (showId, dataSendingToTable) => {
     showsImg: imgArray
   };
 
-  console.log(dataSendingToTable.shows, "Promise_GET_IMG");
+  // console.log(dataSendingToTable.shows, "Promise_GET_IMG");
 
   return dataSendingToTable;
 };
