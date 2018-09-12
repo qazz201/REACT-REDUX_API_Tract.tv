@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-//import Table from "./Table";
 import TableHeader from "./TableHeader";
 
 class CreateTable extends Component {
@@ -28,13 +27,13 @@ class CreateTable extends Component {
             className="showPoster"
           />
         ),
-        showOverview = elem.overview || elem.show.overview,
-        showTitle = elem.title || elem.show.title,
-        showRating = (elem.rating || elem.show.rating).toFixed(1),
-        showGenres = (elem.genres || elem.show.genres).join(", "),
-        showEpisodes = elem.aired_episodes || elem.show.aired_episodes,
-        showYear = elem.year || elem.show.year,
-        showCountry = elem.country || elem.show.country;
+        showOverview = elem.overview,
+        showTitle = elem.title,
+        showRating = elem.rating.toFixed(1),
+        showGenres = elem.genres.join(", "),
+        showEpisodes = elem.aired_episodes,
+        showYear = elem.year,
+        showCountry = elem.country;
 
       return (
         <tr key={key} className="tableRow">
