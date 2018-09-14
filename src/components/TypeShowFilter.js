@@ -16,8 +16,7 @@ class TypeShowFilter extends Component {
   };
 
   render() {
-    var sendRequest = this.props.sendRequest;
-
+   // var sendRequest = this.props.sendRequest;
     return (
       <select className="showFilter" onInput={this.changeShowType}>
         <option value="" disabled selected>
