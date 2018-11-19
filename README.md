@@ -1,4 +1,4 @@
-## Trakt.tv API
+## Trakt.tv API/
 
 This is a  **React/Redux** APP with using [API](https://trakt.docs.apiary.io) of entertainment site Trakt.tv. <br>
 The result you can find by following [this link](https://04qpnorkkv.codesandbox.io/)
